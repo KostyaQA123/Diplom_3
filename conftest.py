@@ -1,10 +1,9 @@
 import pytest
+
+from pages.profile_page import ProfilePage
 from utils.data_generator import generate_user_data
 from utils.api_requests import APIRequests
 from utils.links import Links
-from pages.base_page import BasePage
-from locators.profile_page_locators import ProfilePageLocators
-from locators.main_page_locators import MainPageLocators
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -45,9 +44,9 @@ def user():
 
 @pytest.fixture
 def login(driver, user):
-    login_page = BasePage(driver)
-    login_page.find_clickable_element(MainPageLocators.PROFILE_BUTTON).click()
-    login_page.find_visible_element_located(ProfilePageLocators.EMAIL_INPUT_FIELD)
-    login_page.send_keys(ProfilePageLocators.EMAIL_INPUT_FIELD, user['email'])
-    login_page.send_keys(ProfilePageLocators.PASSWORD_INPUT_FIELD, user['password'])
-    login_page.find_clickable_element(ProfilePageLocators.LOGIN_BUTTON).click()
+    login_page = ProfilePage(driver)
+
+    login_page.click_go_to_profile()
+    login_page.fill_email(user['email'])
+    login_page.fill_password(user['password'])
+    login_page.click_login_button()

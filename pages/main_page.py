@@ -17,6 +17,10 @@ class MainPage(BasePage):
     def click_on_ingredient(self):
         return self.find_clickable_element(MainPageLocators.INGREDIENT).click()
 
+    @allure.step('Подождать загрузку ингридиента')
+    def wait_for_visible_ingredient(self):
+        return self.find_visible_element_located(MainPageLocators.INGREDIENT)
+
     @allure.step('Переход на страницу профиля')
     def click_go_to_profile(self):
         return self.find_clickable_element(MainPageLocators.PROFILE_BUTTON).click()
@@ -47,3 +51,35 @@ class MainPage(BasePage):
     def close_order_popup(self):
         self.find_invisible_element_located(MainPageLocators.COVER_ELEMENT)
         return self.find_clickable_element(MainPageLocators.CLOSE_POPUP_BUTTON).click()
+
+    @allure.step('Подождать загрузку раздела Собери бургер')
+    def wait_for_constructor_page(self):
+        return self.find_visible_element_located(MainPageLocators.CONSTRUCTOR_TITLE)
+
+    @allure.step('Получить текст заголовка Собери бургер')
+    def get_constructor_header_text(self):
+        return self.get_current_text(MainPageLocators.CONSTRUCTOR_TITLE)
+
+    @allure.step('Подождать загрузку раздела Лента заказов')
+    def wait_for_order_feed_page(self):
+        return self.find_visible_element_located(MainPageLocators.ORDER_FEED_TITLE)
+
+    @allure.step('Получить текст заголовка Лента заказов')
+    def get_order_feed_header_text(self):
+        return self.get_current_text(MainPageLocators.ORDER_FEED_TITLE)
+
+    @allure.step('Подождать закрытие всплывающего окна с ингредиентами')
+    def wait_for_invisible_ingredient_details(self):
+        return self.find_invisible_element_located(MainPageLocators.INGREDIENT_POPUP)
+
+    @allure.step('Подождать получение номера заказа')
+    def wait_for_order_number(self):
+        return self.find_visible_element_located(MainPageLocators.ORDER_NUMBER)
+
+    @allure.step('Получить текст с номером заказа')
+    def get_order_number_text(self):
+        return self.get_current_text(MainPageLocators.ORDER_NUMBER)
+
+    @allure.step('Подождать получение идентификатора заказа')
+    def wait_for_order_id(self):
+        return self.find_visible_element_located(MainPageLocators.ORDER_ID)

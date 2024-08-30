@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class PasswordRecoveryLocators:
     RESTORE_PASSWRD_LINK = (By.XPATH, '//a[@href = "/forgot-password"]')  # Ссылка для восстановления пароля
     EMAIL_INPUT_FIELD = (By.XPATH, '//label[text()="Email"]/following-sibling::input')  # Поле ввода почты
+    AUTH_BUTTON = (By.XPATH, '//button[text()="Войти в аккаунт"]')  # Кнопка "Войти в аккаунт"
     RECOVERY_PASSWRD_BUTTON = (By.XPATH, '//button[text()="Восстановить"]')  # Кнопка Восстановить на странице Восстановления пароля
     PASSWORD_INPUT_FIELD = (By.XPATH, '//input[@type="password"]')  # Поле ввода  пароля на странице Восстановления пароля
     SAVE_BUTTON = (By.XPATH, '//button[text()="Сохранить"]')  # Кнопка Сохранить на странице Восстановления пароля

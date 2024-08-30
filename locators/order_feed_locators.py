@@ -12,3 +12,6 @@ class OrdersFeedLocators:
     ORDER_NUMBER_IN_FEED = By.XPATH, '//p[text()="{}"]'  # Номер заказа из Ленты заказов
     ORDER_NUMBER_IN_PROGRESS = (By.XPATH, '//*[contains(@class,"orderListReady")]//li[contains(@class,"digits-default")]')  # Номер заказа в работе
     ORDER_DETAILS_IN_POPUP = (By.XPATH, '//p[text()="Cостав"]')  # Надпись "Состав" в попапе деталей заказа
+    ORDER_FEED_BUTTON = (By.XPATH, '//p[text()="Лента Заказов"]/parent::a')  # Кнопка "Лента Заказов" в хэдере
+    DEFAULT_ORDER = By.XPATH, '//h2[text()="9999"]'  # Дефолтный номер заказа в попапе
+    ORDER_ID = (By.XPATH, '//p[text()="идентификатор заказа"]')  # Идентификатор заказа

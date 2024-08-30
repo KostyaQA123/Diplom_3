@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class ProfilePageLocators:
+    PROFILE_BUTTON = (By.XPATH, '//p[text()="Личный Кабинет"]')  # Кнопка "Личный Кабинет"
     ORDERS_HISTORY_SECTION = (By.XPATH, '//a[text()="История заказов"]')  # Заголовок История заказов
     LOGOUT_LINK = (By.XPATH, '//button[text() = "Выход"]')  # Ссылка для выхода из аккаунта
     EMAIL_INPUT_FIELD = (By.XPATH, '//label[text()="Email"]/following-sibling::input')  # Поле ввода почты для логина
